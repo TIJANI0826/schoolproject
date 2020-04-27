@@ -1,0 +1,58 @@
+<AppgateScreens>:
+    ScreenManager:
+            id: screen_manager
+            Screen:
+                name : "subjects"
+                BoxLayout:
+                    MDAccordion:
+                        orientation: 'vertical'
+                        size_hint_x: None
+                        width: '240dp'
+                        MDAccordionItem:
+                            title:'Subjects'
+                            icon: 'book-open'
+                            MDAccordionSubItem:
+                                text: "MATHS"
+                            MDAccordionSubItem:
+                                text: "PHYSICS"
+                            MDAccordionSubItem:
+                                text: "CHEMISTRY"
+                            MDAccordionSubItem:
+                                text: "ICT"
+                    MDLabel:
+                        text: 'Content'
+                        theme_text_color: 'Primary'
+            Subject:
+                id : subject
+                name : 'subject'
+            Library:
+                id: library
+                name : "library"
+            Lab:
+                id: lab
+                name : "lab"
+            Exam:
+                id: exam
+                name : "exam"
+
+            Activity:
+                id: activity
+                name : "activity"
+            ClassModule:
+                id: classmodule
+                name : "classmodule"
+            Curriculum:
+                id: curriculum
+                name : "curriculum"
+            Features:
+                id:features
+                name : "features"
+            Practicals:
+                id: practicals
+                name : "practicals"
+            VirtualPracticals:
+                id: virtualpracticals
+                name : "virtualpracticals"
+            Settings:
+                id:settings
+                name : "settings"

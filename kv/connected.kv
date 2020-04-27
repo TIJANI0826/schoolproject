@@ -1,0 +1,145 @@
+#:include kv/subject.kv
+#:include kv/lab.kv
+#:include kv/library.kv
+#:include kv/practicals.kv
+#:include kv/settings.kv
+#:include kv/curriculum.kv
+#:include kv/virtualpractical.kv
+#:include kv/exam.kv
+#:include kv/features.kv
+#:include kv/activity.kv
+#:include kv/classModule.kv
+
+
+<Connected>:
+    NavigationLayout:
+        id: nav_layout
+        MDNavigationDrawer:
+            drawer_logo: './assets/robin-944887_1280.jpg'
+            NavigationDrawerDivider:
+            NavigationDrawerIconButton:
+                icon: 'book'
+                text: "Subjects"
+                on_release:
+                    screen_manager.current = "subject"
+            NavigationDrawerIconButton:
+                icon: 'lamp'
+                text: "Library"
+                on_release: screen_manager.current = "library"
+            NavigationDrawerIconButton:
+                icon: 'flask'
+                text: "LAB"
+                on_release: screen_manager.current = 'lab'
+            NavigationDrawerIconButton:
+                icon: 'book-open'
+                text: "Exam Practice"
+                on_release: screen_manager.current = 'exam'
+            NavigationDrawerIconButton:
+                icon: 'speedometer'
+                text: "Activity Recording"
+                on_release: screen_manager.current = 'activity'
+            NavigationDrawerIconButton:
+                icon: 'box'
+                text: "Class Module"
+                on_release: screen_manager.current = 'classmodule'
+            NavigationDrawerIconButton:
+                icon: 'ribbon'
+                text: "Curriculum Update"
+                on_release: screen_manager.current = 'curriculum'
+            NavigationDrawerIconButton:
+                icon: 'wrench'
+                text: "Additional Features"
+                on_release: screen_manager.current = 'features'
+            NavigationDrawerIconButton:
+                icon: 'thermometer'
+                text: "Practicals"
+                on_release: screen_manager.current = 'practicals'
+            NavigationDrawerIconButton:
+                icon: 'star'
+                text: "Virtual Practicals"
+                on_release: screen_manager.current = 'virtualpractical'
+            NavigationDrawerIconButton:
+                icon: 'settings'
+                text: "Settings"
+                on_release: screen_manager.current = 'settings'
+            NavigationDrawerIconButton:
+                icon: 'close'
+                text: "Exit"
+                on_release: app.exit()
+        BoxLayout:
+            orientation : "vertical"
+            NavigationDrawerToolbar:
+                title:"APPGATE"
+                md_bg_color: app.theme_cls.primary_color
+                background_palette: 'Accent'
+                background_hue: 'A200'
+                left_action_items: [['home', lambda x: nav_layout.toggle_nav_drawer()]]
+                right_action_items: [['settings', lambda x: app.open_settings()]]
+            ScreenManager:
+                id: screen_manager
+                Screen:
+                    name : "subjects"
+                    BoxLayout:
+                        MDAccordion:
+                            orientation: 'vertical'
+                            size_hint_x: None
+                            width: '240dp'
+                            MDAccordionItem:
+                                title:'Subjects'
+                                icon: 'book-open'
+                                MDAccordionSubItem:
+                                    text: "MATHS"
+                                MDAccordionSubItem:
+                                    text: "PHYSICS"
+                                MDAccordionSubItem:
+                                    text: "CHEMISTRY"
+                                MDAccordionSubItem:
+                                    text: "ICT"
+                        MDLabel:
+                            text: 'Content'
+                            theme_text_color: 'Primary'
+                Subject:
+                    id : subject
+                    name : 'subject'
+                Lab:
+                    id : lab
+                    name : 'lab'
+                Library:
+                    id : library
+                    name : 'library'
+
+                Practicals:
+                    id : practicals
+                    name : 'practicals'
+                Exam:
+                    id: exam
+                    name : 'exam'
+                Activity:
+                    id : activity
+                    name : 'activity'
+                ClassModule:
+                    id : classmodule
+                    name : 'classmodule'
+                Features:
+                    id : features
+                    name : 'features'
+                Curriculum:
+                    id : curriculum
+                    name : 'curriculum'
+                VirtualPractical:
+                    id : virtualpractical
+                    name : 'virtualpractical'
+                Setting:
+                    id: settings
+                    name : 'settings'
+
+
+            Label:
+                font_size: 70
+                center_x: root.width / 4
+                top: root.top - 50
+                text: "0"Label:
+                font_size: 70
+                center_x: root.width / 4
+                top: root.top - 50
+                text: "0"

@@ -1,0 +1,87 @@
+#:import Toolbar kivymd.toolbar.Toolbar
+#:import ThemeManager kivymd.theming.ThemeManager
+#:import MDNavigationDrawer kivymd.navigationdrawer.MDNavigationDrawer
+#:import NavigationLayout kivymd.navigationdrawer.NavigationLayout
+#:import NavigationDrawerDivider kivymd.navigationdrawer.NavigationDrawerDivider
+#:import NavigationDrawerToolbar kivymd.navigationdrawer.NavigationDrawerToolbar
+#:import NavigationDrawerSubheader kivymd.navigationdrawer.NavigationDrawerSubheader
+#:import MDCheckbox kivymd.selectioncontrols.MDCheckbox
+#:import MDSwitch kivymd.selectioncontrols.MDSwitch
+#:import MDList kivymd.list.MDList
+#:import OneLineListItem kivymd.list.OneLineListItem
+#:import TwoLineListItem kivymd.list.TwoLineListItem
+#:import ThreeLineListItem kivymd.list.ThreeLineListItem
+#:import OneLineAvatarListItem kivymd.list.OneLineAvatarListItem
+#:import OneLineIconListItem kivymd.list.OneLineIconListItem
+#:import OneLineAvatarIconListItem kivymd.list.OneLineAvatarIconListItem
+#:import MDTextField kivymd.textfields.MDTextField
+#:import MDSpinner kivymd.spinner.MDSpinner
+#:import MDCard kivymd.card.MDCard
+#:import MDSeparator kivymd.card.MDSeparator
+#:import MDDropdownMenu kivymd.menu.MDDropdownMenu
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import colors kivymd.color_definitions.colors
+#:import SmartTile kivymd.grid.SmartTile
+#:import MDSlider kivymd.slider.MDSlider
+#:import MDTabbedPanel kivymd.tabs.MDTabbedPanel
+#:import MDTab kivymd.tabs.MDTab
+#:import MDProgressBar kivymd.progressbar.MDProgressBar
+#:import MDAccordion kivymd.accordion.MDAccordion
+#:import MDAccordionItem kivymd.accordion.MDAccordionItem
+#:import MDAccordionSubItem kivymd.accordion.MDAccordionSubItem
+#:import MDThemePicker kivymd.theme_picker.MDThemePicker
+#:import MDBottomNavigation kivymd.tabs.MDBottomNavigation
+#:import MDBottomNavigationItem kivymd.tabs.MDBottomNavigationItem
+<CustomLayout>
+    canvas:
+        Rectangle:
+            source: 'images/index_background.jpg'
+            pos: root.pos
+            size: root.size
+ShowcaseScreen:
+    name: 'Login'
+
+    fullscreen: True
+
+    CustomLayout:
+        id: login_layout
+        orientation: 'vertical'
+        padding: [10,50,10,50]
+        spacing: 50
+
+        Label:
+            text: 'Welcome'
+            font_size: 32
+
+        BoxLayout:
+            orientation: 'vertical'
+            MDTextField:
+                id: login
+                hint_text: "Username"
+                max_text_length: 10
+                color_mode: 'accent'
+                halign: 'center'
+                text_size: '50sp'
+                font_size: '50sp'
+            MDTextField:
+                id: password
+                helper_text_mode: "on_focus"
+                helper_text: "Color is defined by \'line_color_focus\' property"
+                line_color_focus: self.theme_cls.opposite_bg_normal  # This is the color used by the textfield
+                hint_text: "Password"
+                required: True
+                helper_text_mode: "on_error"
+                halign: 'center'
+                text_size: '50sp'
+                font_size: '50sp'
+                text_color : "BLUE"
+                color_mode: 'accent'
+                password:True
+        MDRaisedButton:
+            markup: True
+            text: "Login"
+            font_size : 32
+            elevation_normal: 2
+            opposite_colors: True
+            pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+            on_press: root.do_login(login.text, password.text)
